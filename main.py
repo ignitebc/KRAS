@@ -1,25 +1,16 @@
-import json
-import requests
-import KRASConfig as cf
+import krasTasks
 
-
-# 업종별
+# 업종별 
 def select_industry_pop_list():
-    url = "https://portal.kosha.or.kr/api/portal24/bizC/CRSBA01002/selectIndustryPopList"
+    return krasTasks.select_industry_pop_list()
 
-    response = requests.post(
-        url,
-        headers={**cf.HEADERS, "Content-Type": "application/json"},
-        json= {"pageIndex": 1}
-    )
-    # print("status:", response.status_code)
-    # print("content-type:", response.headers.get("content-type"))
+# 공정 작업, 설명, 설비, 유해인자
+def select_selectKrasPrpare():
+    return krasTasks.select_selectKrasPrpare()
 
-    data = response.json()  
-    print(json.dumps(data, ensure_ascii=False, indent=2))
-
+def select_Risk_Factor():
+    return krasTasks.select_Risk_Factor()
 
 if __name__ == "__main__":
     select_industry_pop_list()
-
-
+    select_selectKrasPrpare()
