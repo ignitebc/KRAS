@@ -1,4 +1,5 @@
 import csv 
+import os
 
 def write_csv(datalist, out_path, csv_columns, value):
     with open(out_path, "w", newline="", encoding="utf-8-sig") as f:
